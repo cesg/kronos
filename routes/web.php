@@ -4,6 +4,9 @@ Route::get('me', function () {
    return auth()->user();
 });
 
+Route::get('/', function () {
+    return redirect('w');
+});
 
 Route::group(['prefix' => 'w'], function () {
     Route::get('/', 'PageController@vue');

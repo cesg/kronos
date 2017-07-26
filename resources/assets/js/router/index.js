@@ -9,16 +9,19 @@ const routes = [
   {
     path: '/',
     component: Home,
-    name: 'today-view'
+    name: 'today-view',
+    meta: { requiresAuth: true }
   },
   {
     path: '/yesterday',
     component: Yesterday,
-    name: 'yesterday-view'
+    name: 'yesterday-view',
+    meta: { requiresAuth: true }
   },
   {
     path: '/login',
-    component: Login
+    component: Login,
+    meta: { requiresAuth: false }
   }
 ]
 
