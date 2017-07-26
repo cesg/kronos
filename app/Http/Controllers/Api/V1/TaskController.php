@@ -25,6 +25,7 @@ class TaskController extends ApiController
         if($user = auth('api')->user()) {
             $data['user_id'] = $user->id;
         }
+
         $task = $this->modelo->create($data);
         return $this->ok($task);
     }
