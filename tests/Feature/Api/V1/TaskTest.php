@@ -27,6 +27,5 @@ class TaskTest extends TestCase
         factory(\App\Models\Task::class, 2)->create();
         $respuesta = $this->json('get', '/api/v1/tasks');
         $respuesta->assertSuccessful();
-        $respuesta->dump();
     }
 }

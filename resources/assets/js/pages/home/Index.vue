@@ -22,6 +22,7 @@
           v-for="task in tasks"
           :key="task.id"
           :task="task"
+          @select="selectTask"
         >
         </box>
       </div>
@@ -29,6 +30,7 @@
   </section>
 </template>
 <script>
+  import { format } from 'date-fns'
   import Box from '../../components/task/Box.vue'
   import Axios from 'axios'
   export default {
@@ -50,17 +52,24 @@
       }
     },
     methods: {
+      selectTask (task) {
+        this.newTask = task
+      },
       fetchTasks () {
-        let day = new Date()
-        day.setHours(12)
-        day = day.toISOString()
-        Axios.get('/api/v1/tasks', {params: {day}})
+        let day = format(new Date(), 'YYYY-MM-DD')
+        Axios.get('/api/v1/tasks', { params: { day } })
           .then(({data}) => {
             this.tasks = data.data
           })
       },
       addTask () {
-        Axios.post('/api/v1/tasks', this.newTask)
+        let day = format(new Date(), 'YYYY-MM-DD')
+        const task = {
+          description: this.newTask.description,
+          date: day
+        }
+
+        Axios.post('/api/v1/tasks', task)
           .then(({data}) => {
             this.tasks.push(data.data)
           })

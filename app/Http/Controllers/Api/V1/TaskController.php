@@ -21,8 +21,11 @@ class TaskController extends ApiController
     public function store()
     {
         $data = \request()->all();
-        $data['date'] = Carbon::now();
-        if($user = auth('api')->user()) {
+        if (!request()->has('date')) {
+            $data['date'] = Carbon::now();
+        }
+
+        if ($user = auth('api')->user()) {
             $data['user_id'] = $user->id;
         }
 
