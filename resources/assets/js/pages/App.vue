@@ -9,6 +9,9 @@
           <router-link tag="li" :to="{name: 'yesterday-view'}">
             <a>Yerterday</a>
           </router-link>
+          <router-link tag="li" :to="{name: 'week-view'}">
+            <a>Week</a>
+          </router-link>
         </ul>
     </div>
     <section id="router-view">

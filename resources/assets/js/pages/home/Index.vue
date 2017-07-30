@@ -10,7 +10,7 @@
         <div class="field">
           <div class="control">
             <button class="button is-primary" @click="addTask">
-              Agregar
+              Add
             </button>
           </div>
         </div>
@@ -38,10 +38,6 @@
       Box
     },
     created () {
-      Axios.get('/me')
-        .then((data) => {
-        })
-        .then(() => this.fetchTasks())
     },
     data () {
       return {

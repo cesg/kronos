@@ -41,6 +41,10 @@ class TaskController extends ApiController
             $tasks->whereDate('date', Carbon::parse($day));
         }
 
+        if ($starDay = request('star_day') && $endDay = request('end_day')) {
+            $tasks->whereBetween('date', [Carbon::parse($starDay), Carbon::parse($endDay)]);
+        }
+
         $tasks = $tasks->get();
         return $this->ok($tasks);
     }

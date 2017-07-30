@@ -22,6 +22,9 @@
           </span>
         </a>
       </div>
+      <div class="level-right">
+        {{ task.date }}
+      </div>
     </nav>
   </div>
 </template>
