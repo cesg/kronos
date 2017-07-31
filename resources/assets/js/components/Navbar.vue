@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="">
-        Kronos
+        Quid
       </a>
       <div class="navbar-burger">
         <span></span>
