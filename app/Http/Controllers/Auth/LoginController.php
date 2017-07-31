@@ -54,7 +54,7 @@ class LoginController extends Controller
         ]);
 
         if (!$user->exists()) {
-            $user->name = $userAuth->getName();
+            $user->name = $userAuth->getName() ?: $userAuth->getNickname();
             $user->password = bcrypt('secret123');
         }
         $user->api_token = md5("$user->email");
