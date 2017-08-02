@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <navbar></navbar>
     <div class="tabs is-centered">
         <ul>
@@ -19,7 +19,7 @@
         <router-view></router-view>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 <script>
   import Navbar from '../components/Navbar.vue'
