@@ -39,6 +39,7 @@
       Box
     },
     created () {
+      this.fetchTasks()
     },
     data () {
       return {
