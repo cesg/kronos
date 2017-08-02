@@ -15,7 +15,7 @@
 <script>
   import Axios from 'axios'
   import Box from '../../components/task/Box.vue'
-
+  import { format} from 'date-fns'
   export default {
     components: {
       Box
@@ -33,7 +33,7 @@
         let day = new Date()
         day.setDate(day.getDate() - 1)
         day.setHours(12)
-        day = day.toISOString()
+        day = format(day, 'YYYY-MM-DD')
         Axios.get('/api/v1/tasks', {params: {day}})
           .then(({data}) => {
             this.tasks = data.data
