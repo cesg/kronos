@@ -23,6 +23,7 @@
           :key="task.id"
           :task="task"
           @select="selectTask"
+          @destroy="removeTask"
         >
         </box>
       </div>
@@ -48,6 +49,9 @@
       }
     },
     methods: {
+      removeTask (task) {
+        this.tasks.filter(taskItem => taskItem.id !== task.id)
+      },
       selectTask (task) {
         this.newTask = task
       },

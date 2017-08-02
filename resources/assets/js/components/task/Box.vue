@@ -35,6 +35,7 @@
     methods: {
       destroy () {
         Axios.delete(`/api/v1/tasks/${this.task.id}`)
+          .then(() => this.$emit('destroy', this.task))
       }
     }
   }
