@@ -23,13 +23,18 @@
         </a>
       </div>
       <div class="level-right">
-        {{ task.date }}
+        <div class="level-item">
+          <small>
+            {{ task.date }}
+          </small>
+        </div>
       </div>
     </nav>
   </div>
 </template>
 <script>
   import Axios from 'axios'
+
   export default {
     props: ['task'],
     methods: {
