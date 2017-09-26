@@ -1,8 +1,5 @@
 import Axios from 'axios'
 
-const apiToken = document.getElementById('app').attributes.apiToken.value
-Axios.defaults.headers.common['Authorization'] = `Bearer ${apiToken}`
-
 let token = document.head.querySelector('meta[name="csrf-token"]')
 
 if (token) {
