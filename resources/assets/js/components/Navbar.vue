@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar" id="navbar">
+  <nav class="navbar is-info" id="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="">
         Quid
