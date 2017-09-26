@@ -33,16 +33,19 @@ class TaskController extends ApiController
         return $this->ok($task);
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $tasks = $this->modelo->newQuery();
         $this->applyFilters($tasks);
-        if ($day = request()->input('day', null)) {
+        if ($day = $request->input('day', null)) {
             $tasks->whereDate('date', Carbon::parse($day));
         }
 
-        if ($starDay = request('star_day') && $endDay = request('end_day')) {
-            $tasks->whereBetween('date', [Carbon::parse($starDay), Carbon::parse($endDay)]);
+        if ($request->has('start_day') && $request->has('end_day')) {
+            $tasks->whereBetween('date', [
+                Carbon::parse($request->input('start_day')),
+                Carbon::parse($request->input('end_day'))
+            ]);
         }
 
         $tasks = $tasks->get();
