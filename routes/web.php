@@ -5,8 +5,6 @@ Route::get('me', function () {
 });
 
 Route::get('/', function () {
-    $user = \App\User::where('email', 'cesgbla@gmail.com')->first();
-    auth()->login($user);
     return redirect('w');
 });
 
