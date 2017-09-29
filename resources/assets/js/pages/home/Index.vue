@@ -1,31 +1,33 @@
 <template>
-  <section>
-    <div class="columns">
-      <div class="column">
-        <div class="field">
-          <div class="control">
-            <input type="text" class="input" v-model="newTask.description">
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class="field">
+            <div class="control">
+              <input type="text" class="input" v-model="newTask.description">
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <button class="button is-primary" @click="addTask">
-              Add
-            </button>
+          <div class="field">
+            <div class="control">
+              <button class="button is-primary" @click="addTask">
+                Add
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="columns">
-      <div class="column">
-        <box
-          v-for="task in tasks"
-          :key="task.id"
-          :task="task"
-          @select="selectTask"
-          @destroy="removeTask"
-        >
-        </box>
+      <div class="columns">
+        <div class="column">
+          <box
+            v-for="task in tasks"
+            :key="task.id"
+            :task="task"
+            @select="selectTask"
+            @destroy="removeTask"
+          >
+          </box>
+        </div>
       </div>
     </div>
   </section>

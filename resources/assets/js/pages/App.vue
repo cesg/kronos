@@ -1,7 +1,10 @@
 <template>
   <main>
-    <navbar></navbar>
-    <div class="tabs is-centered">
+    <navbar v-if="showNavbar"></navbar>
+    <div
+      v-if="showMenu"
+      class="tabs is-centered"
+    >
         <ul>
           <router-link tag="li" :to="{name: 'today-view'}">
             <a>Today</a>
@@ -15,9 +18,7 @@
         </ul>
     </div>
     <section id="router-view">
-      <div class="container">
         <router-view></router-view>
-      </div>
     </section>
   </main>
 </template>
@@ -26,6 +27,15 @@
   export default {
     components: {
       Navbar
+    },
+    computed: {
+      showNavbar () {
+        return !this.$route.meta.hideNavbar
+      },
+
+      showMenu () {
+        return !this.$route.meta.hideMenu
+      }
     }
   }
 </script>
