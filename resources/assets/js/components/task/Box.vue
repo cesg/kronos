@@ -22,7 +22,7 @@
           </span>
         </a>
       </div>
-      <div class="level-right">
+      <div class="level-right is-hidden-mobile">
         <div class="level-item">
           <small>
             {{ task.date }}
